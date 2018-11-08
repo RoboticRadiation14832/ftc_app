@@ -8,11 +8,12 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 public class MotorDrive extends LinearOpMode {
 
     @Override
-    public void runOpMode() throws InterruptedException {
+    public void runOpMode () throws InterruptedException {
         waitForStart();
         DcMotor motor = hardwareMap.dcMotor.get("motor");
-        motor.setPower(-1);
-        Thread.sleep(2000);
+        motor.setPower(1);
+        Thread.sleep(500);
         motor.setPower(0);
+
     }
 }
