@@ -1,9 +1,11 @@
 package org.firstinspires.ftc.teamcode.autonomous;
 
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
+@Autonomous (name= "autonomous")
 public class Auntonomus extends LinearOpMode{
 
     public static final int ENCODERS_PER_INCH = 10800;
