@@ -42,11 +42,11 @@ public class TankDrive extends OpMode
             }
             if(gamepad1.left_bumper)
             {
-                Arm.setPower(-0.5);
+                Arm.setPower(-1);
             }
             else if (gamepad1.right_bumper)
             {
-                Arm.setPower(0.5);
+                Arm.setPower(1);
             }else{
                 Arm.setPower(0);
             }
@@ -57,9 +57,7 @@ public class TankDrive extends OpMode
             else if (gamepad1.y)
             {
                 scoop.setPower(-1);
-            }
-            else
-            {
+            } else {
                 scoop.setPower(0);
             }
             telemetry.addData("Elbow Encoder", Elbow.getCurrentPosition());
