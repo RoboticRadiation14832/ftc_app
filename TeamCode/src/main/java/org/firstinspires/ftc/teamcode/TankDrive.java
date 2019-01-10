@@ -30,31 +30,31 @@ public class TankDrive extends OpMode
             leftMotor.setPower(-gamepad1.right_stick_y);
             // Don't invert the right motor because it is on the other side of the robot
             rightMotor.setPower(gamepad1.left_stick_y);
-            if(gamepad1.left_trigger > 0.5)
+            if(gamepad2.left_trigger > 0.5)
             {
                 Elbow.setPower(-.5);
             }
-            else if (gamepad1.right_trigger > 0.5)
+            else if (gamepad2.right_trigger > 0.5)
             {
                 Elbow.setPower(.5);
             }else{
                 Elbow.setPower(0);
             }
-            if(gamepad1.left_bumper)
+            if(gamepad2.left_bumper)
             {
                 Arm.setPower(-2);
             }
-            else if (gamepad1.right_bumper)
+            else if (gamepad2.right_bumper)
             {
                 Arm.setPower(2);
             }else{
                 Arm.setPower(0);
             }
-            if (gamepad1.a)
+            if (gamepad2.a)
             {
                 scoop.setPower(1);
             }
-            if (gamepad1.y)
+            if (gamepad2.y)
             {
                 scoop.setPower(-1);
 

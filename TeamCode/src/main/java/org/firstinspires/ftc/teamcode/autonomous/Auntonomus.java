@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 @Autonomous (name= "autonomous")
 public class Auntonomus extends LinearOpMode{
 
-    public static final int ENCODERS_PER_INCH = 1100;
+    public static final int ENCODERS_PER_INCH = 1440;
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -21,8 +21,8 @@ public class Auntonomus extends LinearOpMode{
 
         left.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         right.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        left.setTargetPosition(ENCODERS_PER_INCH * 8);
-        right.setTargetPosition(ENCODERS_PER_INCH * 8);
+        left.setTargetPosition(ENCODERS_PER_INCH * 6);
+        right.setTargetPosition(ENCODERS_PER_INCH * 6);
 
         left.setPower(1);
         right.setPower(1);
