@@ -14,25 +14,33 @@ public class DepotAutonomous extends LinearOpMode {
 
     @Override
     public void runOpMode() throws InterruptedException {
-        left = hardwareMap.dcMotor.get("left");
-        right = hardwareMap.dcMotor.get("right");
-        right.setDirection(DcMotorSimple.Direction.REVERSE);
-        left.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        right.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        waitForStart();
+        try {
+            left = hardwareMap.dcMotor.get("left");
+            right = hardwareMap.dcMotor.get("right");
+            right.setDirection(DcMotorSimple.Direction.REVERSE);
+            left.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+            right.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+            waitForStart();
 
-        driveForward(24);
-        turn(90);
-        driveForward(24);
-        turn(90);
-        driveForward(24);
-        turn(90);
-        driveForward(24);
-        turn(90);
+            driveForward(24);
+            turn(90);
+            driveForward(24);
+            turn(90);
+            driveForward(24);
+            turn(90);
+            driveForward(24);
+            turn(90);
+        }
+        catch (InterruptedException e)
+        {
+            left.setPower(0);
+            right.setPower(0);
+            throw e;
+        }
 
     }
 
-    public void driveForward(int inches)
+    public void driveForward(int inches) throws InterruptedException
     {
         left.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         right.setMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -41,13 +49,13 @@ public class DepotAutonomous extends LinearOpMode {
 
         left.setPower(1);
         right.setPower(1);
-        while (left.isBusy()|| right.isBusy() && opModeIsActive());
+        while (left.isBusy()|| right.isBusy() && opModeIsActive()) Thread.sleep(5);
         left.setPower(0);
         right.setPower(0);
 
     }
 
-    public void turn(int degrees)
+    public void turn(int degrees) throws InterruptedException
     {
         left.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         right.setMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -58,7 +66,7 @@ public class DepotAutonomous extends LinearOpMode {
 
         left.setPower(1);
         right.setPower(1);
-        while (left.isBusy()|| right.isBusy() && opModeIsActive());
+        while (left.isBusy()|| right.isBusy() && opModeIsActive()) Thread.sleep(5);
         left.setPower(0);
         right.setPower(0);
     }
